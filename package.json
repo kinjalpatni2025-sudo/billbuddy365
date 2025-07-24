@@ -1,0 +1,16 @@
+{
+  "name": "billbuddy365",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "firebase": "^9.0.0",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.25",
+    "xlsx": "^0.18.5",
+    "emailjs-com": "^3.2.0"
+  }
+}

@@ -1,2 +1,3 @@
-# billbuddy365
-Smart invoice management for all businesses
+# BillBuddy365
+
+Smart invoice system for all businesses.
