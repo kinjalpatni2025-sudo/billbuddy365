@@ -1,14 +1,201 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BillBuddy365 - Auto Invoice Generator</title>
+  <title>Fasttools - All-in-One Online Tools</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: #1e1e2f;
+    }
+    header {
+      background-color: #4b0082;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background-color: #6a0dad;
+      color: #ffffff;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+    }
+    .cta-btn {
+      background-color: #9c27b0;
+      border: none;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      cursor: pointer;
+    }
+    .search-bar {
+      margin: 2rem auto;
+      max-width: 600px;
+      display: flex;
+      justify-content: center;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+    .main-container {
+      display: flex;
+    }
+    .sidebar {
+      width: 220px;
+      background-color: #7b1fa2;
+      padding: 1rem;
+      height: 100%;
+      position: sticky;
+      top: 70px;
+      color: #ffffff;
+    }
+    .sidebar a {
+      display: block;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.5rem 0;
+    }
+    .content {
+      flex: 1;
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    section h3 {
+      color: #6a1b9a;
+      font-size: 1.5rem;
+    }
+    section p {
+      color: #333333;
+    }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .tool-card {
+      background-color: #f3e5f5;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+      color: #1e1e2f;
+    }
+    .tool-card:hover {
+      transform: translateY(-5px);
+    }
+    .tool-card h4 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    .tool-card p {
+      font-size: 0.9rem;
+      color: #4a148c;
+    }
+    .tool-card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background-color: #7e57c2;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+    footer {
+      background-color: #4b0082;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #e1bee7;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to BillBuddy365 - HTML Version</h1>
-  <p>This is a static preview. React-based functionality requires deployment.</p>
-  <script src="app.js"></script>
+  <header>
+    <h1>Fasttools</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Tools</a>
+      <a href="mailto:fasttool.in2025@gmail.com">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Your Daily Tools, All in One Place</h2>
+    <p>Convert, calculate, compress, and simplify your everyday tasks — fast and free.</p>
+    <button class="cta-btn">Explore Tools</button>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search a tool…" />
+  </div>
+
+  <div class="main-container">
+    <div class="sidebar">
+      <a href="#image-tools">🖼 Image Tools</a>
+      <a href="#document-tools">📄 Document Tools</a>
+      <a href="#calculator-tools">🧮 Calculator Tools</a>
+      <a href="#text-tools">🔤 Text Tools</a>
+      <a href="#web-tools">🌐 Web/Dev Tools</a>
+      <a href="#color-tools">🎨 Color Tools</a>
+      <a href="#seo-tools">🌍 SEO Tools</a>
+      <a href="#utility-tools">🛠️ Utility Tools</a>
+    </div>
+
+    <div class="content">
+      <section id="image-tools">
+        <h3>🖼 Image Tools</h3>
+        <p>Convert, resize, and compress images in seconds.</p>
+        <div class="tool-grid">
+          <div class="tool-card">
+            <h4>Image Converter</h4>
+            <p>Convert images to JPG, PNG, or WebP.</p>
+            <a href="#">Use Tool</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <p><strong>Fasttools</strong> – Your Smart Daily Tools Hub</p>
+    <p>Contact us: <a href="mailto:fasttool.in2025@gmail.com">fasttool.in2025@gmail.com</a></p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+  </footer>
 </body>
 </html>
