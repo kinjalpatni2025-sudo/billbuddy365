@@ -1,201 +1,290 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fasttools - All-in-One Online Tools</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Smarttool Hub — Free Online PDF, Image & Utility Tools</title>
+  <meta name="description" content="Smarttool Hub offers 30+ free online tools — PDF converters, image editors, QR utilities, text tools and more. 100% browser-based, private and fast.">
+  <meta name="keywords" content="pdf merge, image to pdf, qr generator, pdf tools online, image tools online"/>
+  <link rel="icon" href="https://img.icons8.com/fluency/48/toolbox.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f7fa;
-      color: #1e1e2f;
+    :root{
+      --bg:#0b1220;--text:#eaf2ff;--card:#182335;--border:#2a3b55;
+      --primary:#22d3ee;--muted:#9fb3c8;--radius:12px;
     }
-    header {
-      background-color: #4b0082;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    body.light{
+      --bg:#f6f8fb;--text:#0b1220;--card:#ffffff;--border:#e6eefc;
+      --primary:#0b74ff;--muted:#556677;
     }
-    header h1 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #ffffff;
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:var(--bg);color:var(--text);transition:background .25s,color .25s;
     }
-    nav a {
-      margin-left: 1.5rem;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 500;
+    .container{max-width:1200px;margin:0 auto;padding:20px}
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      background:var(--card);border-bottom:1px solid var(--border);padding:14px 20px;
     }
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:46px;height:46px;border-radius:10px}
+    .brand .title{font-size:1.25rem;font-weight:700;color:var(--primary);margin:0}
+    .brand .tag{font-size:.9rem;color:var(--muted)}
+    .header-actions{display:flex;gap:10px;align-items:center}
+    .btn-header{
+      border:1px solid var(--border);background:transparent;padding:8px 12px;border-radius:8px;
+      color:var(--text);cursor:pointer;display:flex;align-items:center;gap:6px;text-decoration:none;font-weight:600
+    }
+    .btn-header:hover{border-color:var(--primary);color:var(--primary)}
+    .searchbar{display:flex;gap:8px;margin:20px auto;max-width:760px}
+    .searchbar input{flex:1;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text)}
+    .searchbar button{padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--primary),#60c9ff);border:none;color:#00131f;font-weight:700;cursor:pointer}
+    h2{margin:26px 0 8px;color:var(--primary)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+    .tool{
+      display:flex;gap:12px;align-items:flex-start;background:var(--card);padding:14px;border-radius:var(--radius);
+      border:1px solid var(--border);transition:transform .15s,box-shadow .15s;text-decoration:none;color:inherit
+    }
+    .tool:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,.28);border-color:var(--primary)}
+    .tool i{font-size:22px;color:var(--primary);min-width:34px}
+    .tool h3{margin:0 0 6px;font-size:1rem;color:var(--text)}
+    .tool p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.3}
+    footer{margin-top:34px;padding:18px 0;background:var(--card);border-top:1px solid var(--border)}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .footer-links{display:flex;gap:14px;flex-wrap:wrap}
+    .footer-links a{color:var(--primary);text-decoration:none;font-weight:600}
+    @media (max-width:720px){
+      header{flex-direction:column;align-items:flex-start;gap:10px}
+      .header-actions{align-self:flex-end}
+      .searchbar{padding:0 10px}
+    }
+
+    /* Hero (original sizing & colors) */
     .hero {
       text-align: center;
-      padding: 3rem 1rem;
-      background-color: #6a0dad;
-      color: #ffffff;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, var(--primary) 0%, #2575fc 100%);
+      border-radius: var(--radius);
+      margin: 20px 0 40px;
+      color: white;
     }
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
     }
     .hero p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 25px;
+      opacity: 0.9;
     }
-    .cta-btn {
-      background-color: #9c27b0;
-      border: none;
-      color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 10px;
-      font-size: 1rem;
-      margin-top: 1.5rem;
-      cursor: pointer;
-    }
-    .search-bar {
-      margin: 2rem auto;
-      max-width: 600px;
+    .stats {
       display: flex;
       justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
     }
-    .search-bar input {
-      width: 100%;
-      padding: 0.8rem;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-    }
-    .main-container {
-      display: flex;
-    }
-    .sidebar {
-      width: 220px;
-      background-color: #7b1fa2;
-      padding: 1rem;
-      height: 100%;
-      position: sticky;
-      top: 70px;
-      color: #ffffff;
-    }
-    .sidebar a {
-      display: block;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 0.5rem 0;
-    }
-    .content {
-      flex: 1;
-      padding: 2rem;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    section h3 {
-      color: #6a1b9a;
-      font-size: 1.5rem;
-    }
-    section p {
-      color: #333333;
-    }
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .tool-card {
-      background-color: #f3e5f5;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s;
-      color: #1e1e2f;
-    }
-    .tool-card:hover {
-      transform: translateY(-5px);
-    }
-    .tool-card h4 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-    .tool-card p {
-      font-size: 0.9rem;
-      color: #4a148c;
-    }
-    .tool-card a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      background-color: #7e57c2;
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.85rem;
-    }
-    footer {
-      background-color: #4b0082;
-      padding: 1rem 2rem;
+    .stat {
       text-align: center;
-      font-size: 0.9rem;
-      color: #e1bee7;
+    }
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Category tabs */
+    .categories {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .category-btn {
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .category-btn.active, .category-btn:hover {
+      background: var(--primary);
+      color: #00131f;
+      border-color: var(--primary);
+    }
+
+    /* Tool counter */
+    .tool-counter {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 15px 0;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Fasttools</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Tools</a>
-      <a href="mailto:fasttool.in2025@gmail.com">Contact</a>
-    </nav>
-  </header>
+<header class="container">
+  <div class="brand">
+    <a href="/index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+      <img src="https://img.icons8.com/fluency/48/toolbox.png" alt="Smarttool Hub Logo">
+      <div>
+        <div class="title">Smarttool Hub</div>
+        <div class="tag">Fast • Private • 100% Client-side</div>
+      </div>
+    </a>
+  </div>
+  <div class="header-actions">
+    <a href="/index.html" class="btn-header"><i class="fa-solid fa-house"></i> Home</a>
+    <button class="btn-header" id="themeToggle" title="Toggle dark/light mode"><i class="fa-solid fa-moon"></i></button>
+  </div>
+</header>
 
+<main class="container">
   <div class="hero">
-    <h2>Your Daily Tools, All in One Place</h2>
-    <p>Convert, calculate, compress, and simplify your everyday tasks — fast and free.</p>
-    <button class="cta-btn">Explore Tools</button>
-  </div>
-
-  <div class="search-bar">
-    <input type="text" placeholder="Search a tool…" />
-  </div>
-
-  <div class="main-container">
-    <div class="sidebar">
-      <a href="#image-tools">🖼 Image Tools</a>
-      <a href="#document-tools">📄 Document Tools</a>
-      <a href="#calculator-tools">🧮 Calculator Tools</a>
-      <a href="#text-tools">🔤 Text Tools</a>
-      <a href="#web-tools">🌐 Web/Dev Tools</a>
-      <a href="#color-tools">🎨 Color Tools</a>
-      <a href="#seo-tools">🌍 SEO Tools</a>
-      <a href="#utility-tools">🛠️ Utility Tools</a>
-    </div>
-
-    <div class="content">
-      <section id="image-tools">
-        <h3>🖼 Image Tools</h3>
-        <p>Convert, resize, and compress images in seconds.</p>
-        <div class="tool-grid">
-          <div class="tool-card">
-            <h4>Image Converter</h4>
-            <p>Convert images to JPG, PNG, or WebP.</p>
-            <a href="#">Use Tool</a>
-          </div>
-        </div>
-      </section>
+    <h1>30+ Free Online Tools</h1>
+    <p>All your PDF, image, and utility tools in one place. 100% browser-based, private, and free to use.</p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">15</div>
+        <div class="stat-label">PDF Tools</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Image Tools</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">10</div>
+        <div class="stat-label">Utility Tools</div>
+      </div>
     </div>
   </div>
 
-  <footer>
-    <p><strong>Fasttools</strong> – Your Smart Daily Tools Hub</p>
-    <p>Contact us: <a href="mailto:fasttool.in2025@gmail.com">fasttool.in2025@gmail.com</a></p>
-    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
-  </footer>
+  <form class="searchbar" onsubmit="event.preventDefault();applySearch();">
+    <input id="searchInput" aria-label="Search tools" placeholder="Search tools (e.g. 'pdf merge', 'png', 'qr')">
+    <button type="submit">Search</button>
+  </form>
+
+  <div class="categories">
+    <button class="category-btn active" data-category="all">All Tools</button>
+    <button class="category-btn" data-category="pdf">PDF Tools</button>
+    <button class="category-btn" data-category="image">Image Tools</button>
+    <button class="category-btn" data-category="utility">Utility Tools</button>
+  </div>
+
+  <div class="tool-counter">
+    <i class="fa-solid fa-screwdriver-wrench"></i>
+    <span id="toolCount">33</span> tools available
+  </div>
+
+  <h2>All Tools</h2>
+  <div class="grid" id="toolGrid" aria-live="polite">
+    <!-- Example tool items (use same relative paths as your tools folder) -->
+    <a class="tool" href="/tools/image-to-pdf/index.html" data-category="pdf"><i class="fa-solid fa-file-arrow-down"></i><div><h3>Image to PDF Converter</h3><p>Upload multiple images, reorder & export as PDF.</p></div></a>
+    <a class="tool" href="/tools/pdf-merge/index.html" data-category="pdf"><i class="fa-solid fa-object-group"></i><div><h3>Merge Multiple PDFs</h3><p>Combine multiple PDF files into one.</p></div></a>
+    <a class="tool" href="/tools/pdf-split/index.html" data-category="pdf"><i class="fa-solid fa-scissors"></i><div><h3>Split PDF Pages</h3><p>Select page ranges or individual pages to extract.</p></div></a>
+    <a class="tool" href="/tools/pdf-compress/index.html" data-category="pdf"><i class="fa-solid fa-file-zipper"></i><div><h3>Compress PDF Size</h3><p>Reduce PDF size without losing quality.</p></div></a>
+    <a class="tool" href="/tools/pdf-rotate/index.html" data-category="pdf"><i class="fa-solid fa-rotate"></i><div><h3>Rotate PDF Pages</h3><p>Rotate single or all PDF pages.</p></div></a>
+
+    <!-- Image & Utility tool examples -->
+    <a class="tool" href="/tools/jpg-to-png/index.html" data-category="image"><i class="fa-solid fa-image"></i><div><h3>JPG to PNG Converter</h3><p>Convert JPG to PNG instantly.</p></div></a>
+    <a class="tool" href="/tools/image-resize/index.html" data-category="image"><i class="fa-solid fa-up-right-and-down-left-from-center"></i><div><h3>Resize Image</h3><p>Change image dimensions easily.</p></div></a>
+    <a class="tool" href="/tools/qr-generator/index.html" data-category="utility"><i class="fa-solid fa-qrcode"></i><div><h3>QR Code Generator</h3><p>Create QR codes for text or URLs.</p></div></a>
+    <a class="tool" href="/tools/base64/index.html" data-category="utility"><i class="fa-solid fa-code"></i><div><h3>Base64 Tool</h3><p>Encode/decode Base64 text and files.</p></div></a>
+  </div>
+</main>
+
+<footer class="container">
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Smarttool Hub</div>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/comments.html">Comments</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Set current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+  
+  // Theme toggle functionality
+  const themeToggle = document.getElementById('themeToggle');
+  if (localStorage.getItem('sth_theme') === 'light') {
+    document.body.classList.add('light');
+    themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  }
+  
+  themeToggle.onclick = () => {
+    document.body.classList.toggle('light');
+    if (document.body.classList.contains('light')) {
+      themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      localStorage.setItem('sth_theme', 'light');
+    } else {
+      themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      localStorage.removeItem('sth_theme');
+    }
+  };
+  
+  // Search filter
+  function applySearch() {
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+    const tools = document.querySelectorAll('#toolGrid .tool');
+    let visibleCount = 0;
+    
+    tools.forEach(tool => {
+      const text = tool.textContent.toLowerCase();
+      if (!query || text.includes(query)) {
+        tool.style.display = 'flex';
+        visibleCount++;
+      } else {
+        tool.style.display = 'none';
+      }
+    });
+    
+    document.getElementById('toolCount').textContent = visibleCount;
+  }
+  
+  // Category filtering
+  const categoryButtons = document.querySelectorAll('.category-btn');
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.getAttribute('data-category');
+      
+      // Update active button
+      categoryButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Filter tools
+      const tools = document.querySelectorAll('#toolGrid .tool');
+      let visibleCount = 0;
+      
+      tools.forEach(tool => {
+        if (category === 'all' || tool.getAttribute('data-category') === category) {
+          tool.style.display = 'flex';
+          visibleCount++;
+        } else {
+          tool.style.display = 'none';
+        }
+      });
+      
+      document.getElementById('toolCount').textContent = visibleCount;
+    });
+  });
+  
+  // Initialize tool count
+  document.getElementById('toolCount').textContent = document.querySelectorAll('#toolGrid .tool').length;
+</script>
 </body>
 </html>
